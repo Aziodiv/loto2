@@ -31,14 +31,14 @@ public class UserAccountRepository {
                 ":first_name," +
                 ":last_name)";
         MapSqlParameterSource map = new MapSqlParameterSource();
-        map.addValue("username",userAccount.getUsername());
-        map.addValue("password",userAccount.getPassword());
-        map.addValue("email",userAccount.getEmail());
-        map.addValue("tax_number",userAccount.getTaxNumber());
-        map.addValue("first_name",userAccount.getFirstName());
-        map.addValue("last_name",userAccount.getLastNmae());
+        map.addValue("username", userAccount.getUsername());
+        map.addValue("password", userAccount.getPassword());
+        map.addValue("email", userAccount.getEmail());
+        map.addValue("tax_number", userAccount.getTaxNumber());
+        map.addValue("first_name", userAccount.getFirstName());
+        map.addValue("last_name", userAccount.getLastNmae());
 
-        return nameParameterJdbcTemplate.update(sql,map);
+        return nameParameterJdbcTemplate.update(sql, map);
     }
 
 
@@ -46,6 +46,29 @@ public class UserAccountRepository {
         return jdbcTemplate.query("SELECT * FROM USER_ACCOUNT", getRowMapper());
 
     }
+
+
+
+    public List<UserAccount> findByEmail(String email) {
+
+        //TODO..
+        return null;
+    }
+
+    public List<UserAccount> findByTaxNumber(Long taxNumber) {
+        //TODO..
+
+
+
+
+        return null;
+    }
+
+
+
+
+
+
 
 
     public List<UserAccount> findByUsername(String username) {

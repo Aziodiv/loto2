@@ -12,7 +12,8 @@ public class UserAccount {
 
 
 
-    public UserAccount(String username, String password, String email, Long taxNumber, String firstName, String lastNmae) {
+    public UserAccount(String username, String password, String email,
+                       Long taxNumber, String firstName, String lastNmae) {
         this(null, username,password,email,taxNumber,firstName,lastNmae);
         this.username = username;
         this.password = password;

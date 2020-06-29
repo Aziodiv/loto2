@@ -17,7 +17,7 @@ public class UserAccounService {
     private UserAccountRepository userAccountRepository;
 
     public ResponseEntity registerUser(UserAccount userAccount) {
-        final List<UserAccount> userAccounts = userAccountRepository.findByUsername(userAccount.getUsername());
+        List<UserAccount> userAccounts = userAccountRepository.findByUsername(userAccount.getUsername());
         if (!userAccounts.isEmpty()) {
             return new ResponseEntity<>("user already registrated", HttpStatus.NOT_ACCEPTABLE);
 
@@ -26,7 +26,7 @@ public class UserAccounService {
         if (!userAccounts.isEmpty()) {
             return new ResponseEntity<>("USer with mentioned email already registered", HttpStatus.NOT_ACCEPTABLE);
         }
-        userAccounts = userAccountRepository.findByTaxNumber(userAccount.getEmail());
+        userAccounts = userAccountRepository.findByTaxNumber(userAccount.getTaxNumber());
         if (!userAccounts.isEmpty()) {
             return new ResponseEntity<>("USer with mentioned Tax Number already registered", HttpStatus.NOT_ACCEPTABLE);
         }
