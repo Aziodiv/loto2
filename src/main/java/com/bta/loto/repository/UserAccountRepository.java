@@ -50,25 +50,14 @@ public class UserAccountRepository {
 
 
     public List<UserAccount> findByEmail(String email) {
+        return jdbcTemplate.query("SELECT * FROM email", getRowMapper());
 
-        //TODO..
-        return null;
     }
 
     public List<UserAccount> findByTaxNumber(Long taxNumber) {
-        //TODO..
+        return jdbcTemplate.query("SELECT * FROM taxNumber", getRowMapper());
 
-
-
-
-        return null;
     }
-
-
-
-
-
-
 
 
     public List<UserAccount> findByUsername(String username) {
@@ -80,6 +69,13 @@ public class UserAccountRepository {
 
         return nameParameterJdbcTemplate.query(query, map, getRowMapper());
     }
+
+
+
+
+
+
+
 
 
     private RowMapper<UserAccount> getRowMapper() {
