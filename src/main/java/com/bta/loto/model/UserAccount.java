@@ -1,31 +1,38 @@
 package com.bta.loto.model;
 
-public class UserAccount {
+import javax.validation.constraints.*;
 
-    private Long id;
+public class UserAccount extends BaseEntity {
+
+
+    @NotNull
+    @NotEmpty
+    @Size(max = 50)
     private String username;
+
+
+    @NotNull
+    @NotEmpty
     private String password;
+
+    @Email
     private String email;
+
+
+    @Max(999999)
     private Long taxNumber;
     private String firstName;
     private String lastNmae;
 
 
-
     public UserAccount(String username, String password, String email,
                        Long taxNumber, String firstName, String lastNmae) {
-        this(null, username,password,email,taxNumber,firstName,lastNmae);
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.taxNumber = taxNumber;
-        this.firstName = firstName;
-        this.lastNmae = lastNmae;
+        this(null, username, password, email, taxNumber, firstName, lastNmae);
     }
 
     public UserAccount(Long id, String username, String password, String email, Long taxNumber,
-                       String firstName, String lastNmae){
-        this.id = id;
+                       String firstName, String lastNmae) {
+        super(id);
         this.username = username;
         this.password = password;
         this.email = email;
@@ -34,15 +41,6 @@ public class UserAccount {
         this.lastNmae = lastNmae;
     }
 
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;
@@ -92,16 +90,5 @@ public class UserAccount {
         this.lastNmae = lastNmae;
     }
 
-    @Override
-    public String toString() {
-        return "UserAccount{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", taxNumber=" + taxNumber +
-                ", firstName='" + firstName + '\'' +
-                ", lastNmae='" + lastNmae + '\'' +
-                '}';
-    }
+
 }

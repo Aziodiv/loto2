@@ -11,3 +11,21 @@ last_name VARCHAR(100)
 CREATE SEQUENCE user_account_seq;
 
 select * from user_account
+
+
+
+CREATE TABLE bet(
+    id INTEGER PRIMARY KEY,
+    number1 INTEGER NOT NULL,
+    number2 INTEGER NOT NULL,
+    number3 INTEGER NOT NULL,
+    number4 INTEGER NOT NULL,
+    number5 INTEGER NOT NULL,
+    number6 INTEGER NOT NULL,
+	user_account_id INTEGER NOT NULL,
+	active BOOLEAN NOT NULL,
+	datetime TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW(),
+	FOREIGN KEY (user_account_id) REFERENCES user_account (id)
+);
+
+CREATE SEQUENCE user_account_seq;

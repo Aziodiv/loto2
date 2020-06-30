@@ -30,8 +30,9 @@ public class UserAccounService {
         if (!userAccounts.isEmpty()) {
             return new ResponseEntity<>("USer with mentioned Tax Number already registered", HttpStatus.NOT_ACCEPTABLE);
         }
-        userAccountRepository.save(UserAccount);
+        userAccountRepository.save(userAccount);
 
         return new ResponseEntity<>("user registerd", HttpStatus.OK);
     }
+
 }

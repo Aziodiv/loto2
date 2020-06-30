@@ -31,7 +31,7 @@ public class UserAccountController {
     @GetMapping("users")
     public ResponseEntity<List<UserAccount>> getAllUsers() {
         List<UserAccount> users = userAccountRepository.findAll();
-//TODO...
+
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
