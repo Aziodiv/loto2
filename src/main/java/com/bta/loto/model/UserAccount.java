@@ -24,6 +24,9 @@ public class UserAccount extends BaseEntity {
     private String firstName;
     private String lastName;
 
+    public UserAccount() {
+    }
+
     public UserAccount(int number1, long number2, String number3, String number4, long number5, String number6, String dateTime) {
     }
 

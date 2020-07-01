@@ -12,6 +12,13 @@ import java.util.List;
 @Repository
 public class UserAccountRepository extends AbstractRepository<UserAccount> {
     @Override
+    public int update(UserAccount entity) {
+
+        ///TODO
+        return 0;
+    }
+
+    @Override
     public int save(UserAccount entity) {
         final String sql = "INSERT INTO user_account (id, username, password, email, tax_number, first_name, last_name)" +
                 "values (nextval('user_account_seq')," +

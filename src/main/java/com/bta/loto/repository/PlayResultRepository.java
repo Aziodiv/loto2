@@ -15,8 +15,13 @@ import java.util.List;
 public class PlayResultRepository extends AbstractRepository<PlayResult> {
 
     @Override
+    public int update(PlayResult entity) {
+        return 0;
+    }
+
+    @Override
     public int save(PlayResult entity) {
-        final String sql = "INSERT INTO user_account (number1, number2, number3, number4, number5, number6, dateTime)" +
+        final String sql = "INSERT INTO play_result (number1, number2, number3, number4, number5, number6, dateTime)" +
                 "values (nextval('play_result_seq')," +
                 ":number1," +
                 ":number2," +
@@ -39,13 +44,13 @@ public class PlayResultRepository extends AbstractRepository<PlayResult> {
 
     @Override
     public List<PlayResult> findAll() {
-        return jdbcTemplate.query("SELECT * FROM PLAY_RESULT", getRowMapper());
+        return jdbcTemplate.query("SELECT * FROM play_result", getRowMapper());
 
     }
 
 
     public List<PlayResult> findByDate(LocalDateTime dateTime) {
-        String query = "SELECT * FROM USER_ACCOUNT where datetime = :datetime";
+        String query = "SELECT * FROM play_result where datetime = :datetime";
         MapSqlParameterSource map = new MapSqlParameterSource().addValue("datetime", dateTime);
         map.addValue("datetime", dateTime);
         return nameParameterJdbcTemplate.query(query, map, getRowMapper());

@@ -26,9 +26,8 @@ public class UserAccountController {
     @Autowired
     private UserAccounService userAccounService;
 
-
     //..........localhost:8888/users => all users
-    @GetMapping("users")
+    @GetMapping
     public ResponseEntity<List<UserAccount>> getAllUsers() {
         List<UserAccount> users = userAccountRepository.findAll();
 

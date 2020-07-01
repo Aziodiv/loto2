@@ -17,7 +17,7 @@ public class BetService {
 
 
     public ResponseEntity registerBet(Bet bet) {
-        bet.setUserAccountId(1l);
+        bet.setUserAccountId(6l);
         bet.setDateTime(LocalDateTime.now());
         bet.setActive(true);
         betRepository.save(bet);
