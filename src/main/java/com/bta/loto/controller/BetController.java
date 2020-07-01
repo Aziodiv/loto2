@@ -2,6 +2,7 @@ package com.bta.loto.controller;
 
 
 import com.bta.loto.model.Bet;
+import com.bta.loto.model.PlayResult;
 import com.bta.loto.repository.BetRepository;
 import com.bta.loto.service.BetService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,4 +25,11 @@ public class BetController {
     public ResponseEntity register(@RequestBody Bet bet) {
         return betService.registerBet(bet);
     }
+
+
+    @PostMapping("resultreg")
+    public ResponseEntity resultreg (@RequestBody PlayResult playResult){
+     return null;
+    }
+
 }

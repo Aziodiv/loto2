@@ -22,23 +22,25 @@ public class UserAccount extends BaseEntity {
     @Max(999999)
     private Long taxNumber;
     private String firstName;
-    private String lastNmae;
+    private String lastName;
 
+    public UserAccount(int number1, long number2, String number3, String number4, long number5, String number6, String dateTime) {
+    }
 
     public UserAccount(String username, String password, String email,
-                       Long taxNumber, String firstName, String lastNmae) {
-        this(null, username, password, email, taxNumber, firstName, lastNmae);
+                       Long taxNumber, String firstName, String lastName) {
+        this(null, username, password, email, taxNumber, firstName, lastName);
     }
 
     public UserAccount(Long id, String username, String password, String email, Long taxNumber,
-                       String firstName, String lastNmae) {
+                       String firstName, String lastName) {
         super(id);
         this.username = username;
         this.password = password;
         this.email = email;
         this.taxNumber = taxNumber;
         this.firstName = firstName;
-        this.lastNmae = lastNmae;
+        this.lastName = lastName;
     }
 
 
@@ -82,12 +84,12 @@ public class UserAccount extends BaseEntity {
         this.firstName = firstName;
     }
 
-    public String getLastNmae() {
-        return lastNmae;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastNmae(String lastNmae) {
-        this.lastNmae = lastNmae;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
 

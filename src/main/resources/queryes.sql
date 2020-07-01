@@ -29,3 +29,17 @@ CREATE TABLE bet(
 );
 
 CREATE SEQUENCE user_account_seq;
+
+
+CREATE TABLE play_result(
+    id INTEGER PRIMARY KEY,
+    number1 INTEGER NOT NULL,
+    number2 INTEGER NOT NULL,
+    number3 INTEGER NOT NULL,
+    number4 INTEGER NOT NULL,
+    number5 INTEGER NOT NULL,
+    number6 INTEGER NOT NULL,
+	datetime TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW());
+
+
+CREATE SEQUENCE play_result_seq;

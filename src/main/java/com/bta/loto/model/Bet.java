@@ -46,7 +46,8 @@ public class Bet extends BaseEntity {
     private Boolean active;
 
 
-
+    public Bet() {
+    }
 
     public Bet(Integer number1,
                Integer number2,
@@ -74,6 +75,8 @@ public class Bet extends BaseEntity {
         this.dateTime = dateTime;
         this.active = active;
     }
+
+
 
 
     public boolean isActive() {
