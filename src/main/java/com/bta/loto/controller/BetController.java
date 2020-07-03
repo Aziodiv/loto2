@@ -41,15 +41,4 @@ public class BetController {
         return betService.registerBet(bet);
     }
 
-
-}    @Override
-public List<Bet> findAll() {
-    return jdbcTemplate.query("SELECT * FROM BET", getRowMapper());
 }
-
-    public List<Bet> findAllActive(Boolean active) {
-        String query = "SELECT * FROM BET where active = :active";
-        MapSqlParameterSource map = new MapSqlParameterSource().addValue("active", active);
-        map.addValue("active", active);
-        return nameParameterJdbcTemplate.query(query, map, getRowMapper());
-    }

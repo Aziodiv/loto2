@@ -9,8 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-package com.bta.loto.repository;
-
 import java.util.List;
 
 import org.springframework.jdbc.core.RowMapper;
@@ -37,8 +35,9 @@ public class BetRepository extends AbstractRepository<Bet> {
                 ":datetime," +
                 ":active)";
 
-        return namedParameterJdbcTemplate.update(sql, getMap(bet));
+        return nameParameterJdbcTemplate.update(sql, getMap(bet));
     }
+
     @Override
     public int update(Bet bet) {
         final String sql = "UPDATE bet SET " +
@@ -53,7 +52,7 @@ public class BetRepository extends AbstractRepository<Bet> {
                 "active= :active " +
                 "WHERE id = :id ";
 
-        return namedParameterJdbcTemplate.update(sql, getMap(bet));
+        return nameParameterJdbcTemplate.update(sql, getMap(bet));
     }
 
     private MapSqlParameterSource getMap(Bet bet) {
@@ -76,8 +75,11 @@ public class BetRepository extends AbstractRepository<Bet> {
         return jdbcTemplate.query("SELECT * FROM bet", getRowMapper());
     }
 
-    public List<Bet> findAllActive() {
-        return jdbcTemplate.query("SELECT * FROM bet where active = true", getRowMapper());
+    public List<Bet> findAllActive(Boolean active) {
+        String query = "SELECT * FROM BET where active = :active";
+        MapSqlParameterSource map = new MapSqlParameterSource().addValue("active", active);
+        map.addValue("active", active);
+        return nameParameterJdbcTemplate.query(query, map, getRowMapper());
     }
 
     private RowMapper<Bet> getRowMapper() {
